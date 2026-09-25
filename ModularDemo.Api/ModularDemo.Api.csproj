@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModularDemo.Modules.Orders\ModularDemo.Modules.Orders.csproj" />
+    <ProjectReference Include="..\ModularDemo.Modules.Shipping\ModularDemo.Modules.Shipping.csproj" />
+    <ProjectReference Include="..\ModularDemo.Shared\ModularDemo.Shared.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>
