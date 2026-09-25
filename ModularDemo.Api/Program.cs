@@ -1,7 +1,10 @@
 // ModularDemo.Api/Program.cs
+using ModularDemo.Modules.Content;
 using ModularDemo.Modules.Orders;
 using ModularDemo.Modules.Shipping;
 using ModularDemo.Shared;
+using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Extensions;
 using static ModularDemo.Shared.IEvent;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,8 +16,33 @@ builder.Services.AddScoped<IEventBus, InMemoryEventBus>();
 builder.Services.AddOrdersModule();
 builder.Services.AddShippingModule();
 
+// Umbraco CMS + the Content module that wraps it
+builder.CreateUmbracoBuilder()
+	.AddBackOffice()
+	.AddWebsite()
+	.AddDeliveryApi()
+	.AddComposers()
+	.AddContentModule()
+	.Build();
+
 var app = builder.Build();
 
-app.MapOrdersEndpoints();
+await app.BootUmbracoAsync();
 
-app.Run();
+app.UseUmbraco()
+	.WithMiddleware(u =>
+	{
+		u.UseBackOffice();
+		u.UseWebsite();
+	})
+	.WithEndpoints(u =>
+	{
+		u.UseBackOfficeEndpoints();
+		u.UseWebsiteEndpoints();
+	});
+
+// Module endpoints (explicit routes win over Umbraco's catch-all content route)
+app.MapOrdersEndpoints();
+app.MapContentEndpoints();
+
+await app.RunAsync();

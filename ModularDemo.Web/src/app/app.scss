@@ -1,0 +1,9 @@
+.inner { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+.topbar { border-bottom: 1px solid var(--border); background: var(--surface); position: sticky; top: 0; }
+.topbar .inner { display: flex; align-items: center; gap: 2rem; height: 56px; }
+.brand { font-weight: 700; text-decoration: none; color: inherit; }
+nav { display: flex; gap: 1.25rem; overflow-x: auto; }
+nav a { text-decoration: none; color: var(--muted); white-space: nowrap; }
+nav a.active, nav a:hover { color: var(--accent); }
+main.inner { padding-top: 2rem; padding-bottom: 3rem; min-height: 70vh; }
+footer { padding-bottom: 2rem; font-size: .85rem; }

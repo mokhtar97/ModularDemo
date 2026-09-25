@@ -1,5 +1,7 @@
 <Solution>
   <Project Path="ModularDemo.Api/ModularDemo.Api.csproj" />
+  <Project Path="ModularDemo.Modules.Content.Contracts/ModularDemo.Modules.Content.Contracts.csproj" />
+  <Project Path="ModularDemo.Modules.Content/ModularDemo.Modules.Content.csproj" />
   <Project Path="ModularDemo.Modules.Orders.Contracts/ModularDemo.Modules.Orders.Contracts.csproj" />
   <Project Path="ModularDemo.Modules.Orders/ModularDemo.Modules.Orders.csproj" />
   <Project Path="ModularDemo.Modules.Shipping/ModularDemo.Modules.Shipping.csproj" />

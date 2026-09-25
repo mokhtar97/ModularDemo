@@ -1,0 +1,16 @@
+<header class="topbar">
+  <div class="inner">
+    <a routerLink="/" class="brand">{{ home.value()?.name ?? 'ModularDemo' }}</a>
+    <nav>
+      @for (item of home.value()?.children ?? []; track item.key) {
+        <a [routerLink]="item.url" routerLinkActive="active">{{ item.name }}</a>
+      }
+    </nav>
+  </div>
+</header>
+
+<main class="inner">
+  <router-outlet />
+</main>
+
+<footer class="inner muted">Content served by Umbraco 17 via the ModularDemo Content module</footer>
