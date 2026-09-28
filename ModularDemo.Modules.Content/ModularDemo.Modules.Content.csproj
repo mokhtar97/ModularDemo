@@ -7,8 +7,10 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <!-- Only the Umbraco core abstractions; the full CMS package lives in the host. -->
+    <!-- Umbraco abstractions only; the full CMS package lives in the host. -->
     <PackageReference Include="Umbraco.Cms.Core" Version="17.7.0" />
+    <!-- For IPublishedContentQuery (keep the version in step with Umbraco.Cms in the host). -->
+    <PackageReference Include="Umbraco.Cms.Infrastructure" Version="17.7.0" />
   </ItemGroup>
 
   <PropertyGroup>

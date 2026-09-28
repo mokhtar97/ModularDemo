@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<DictionaryItem Key="5221215c-0d3a-55c5-9b83-f0f6f107645b" Name="Zoo Search 2">
+  <DictionaryItem Key="d6537583-5723-5a52-ae0c-557ae70e3515" Name="Search.Hint">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Type at least 2 letters to search]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[اكتب حرفين على الأقل للبحث]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="e881ac57-2de0-50a3-9309-d3a8b3183e81" Name="Search.Close">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Close]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[إغلاق]]></Value>
+  </DictionaryItem>
+</DictionaryItem>

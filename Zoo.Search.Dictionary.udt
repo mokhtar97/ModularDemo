@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<DictionaryItem Key="ecd9a5c4-8d23-5595-9bb0-2c829e37a1d5" Name="Zoo Search">
+  <DictionaryItem Key="9ee3e438-712d-5e50-8960-605dc74e7406" Name="Search.Label">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Search the site]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[ابحث في الموقع]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="492cf289-1079-52e6-ae9d-ea7868f884a7" Name="Search.Placeholder">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Search…]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[بحث…]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="62a6a268-63ac-5044-ba12-2ea65eaa549b" Name="Search.Searching">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Searching…]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[جارٍ البحث…]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="ba8a644f-5298-5960-81cb-e685b4116974" Name="Search.NoResults">
+    <Value LanguageCultureAlias="en-US"><![CDATA[No results]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[لا توجد نتائج]]></Value>
+  </DictionaryItem>
+</DictionaryItem>

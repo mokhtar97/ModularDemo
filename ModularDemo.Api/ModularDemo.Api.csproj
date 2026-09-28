@@ -10,6 +10,8 @@
   <ItemGroup>
     <!-- Full Umbraco CMS (backoffice, website, Delivery API, SQL Server + SQLite providers) -->
     <PackageReference Include="Umbraco.Cms" Version="17.7.0" />
+    <!-- Runtime Razor compilation, required by ModelsBuilder "InMemoryAuto" (keep in step with Umbraco.Cms). -->
+    <PackageReference Include="Umbraco.Cms.DevelopmentMode.Backoffice" Version="17.7.0" />
   </ItemGroup>
 
   <PropertyGroup>

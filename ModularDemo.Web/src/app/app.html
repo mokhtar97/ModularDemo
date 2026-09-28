@@ -1,11 +1,42 @@
 <header class="topbar">
   <div class="inner">
-    <a routerLink="/" class="brand">{{ home.value()?.name ?? 'ModularDemo' }}</a>
-    <nav>
-      @for (item of home.value()?.children ?? []; track item.key) {
-        <a [routerLink]="item.url" routerLinkActive="active">{{ item.name }}</a>
+    <a routerLink="/" class="brand">
+      <span class="brand-mark" aria-hidden="true">🦁</span>
+      {{ site.siteName() || 'Zoo' }}
+    </a>
+    <nav [attr.aria-label]="lang.t('Nav.Label', 'Main')">
+      @for (item of site.nav(); track item.path) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+          >{{ item.label }}</a
+        >
       }
     </nav>
+
+    <div class="tools">
+      <app-site-search />
+
+      @if (lang.languages().length > 1) {
+        <label class="lang">
+          <span class="visually-hidden">{{ lang.t('Language.Label', 'Language') }}</span>
+          <span class="lang-icon" aria-hidden="true">🌐</span>
+          <select [disabled]="site.loading()" (change)="changeLanguage($any($event.target).value)">
+            @for (language of lang.languages(); track language.isoCode) {
+              <option
+                [value]="language.isoCode"
+                [selected]="lang.same(language.isoCode, lang.current())"
+                [attr.lang]="language.isoCode"
+              >
+                {{ lang.label(language) }}
+              </option>
+            }
+          </select>
+        </label>
+      }
+    </div>
   </div>
 </header>
 
@@ -13,4 +44,6 @@
   <router-outlet />
 </main>
 
-<footer class="inner muted">Content served by Umbraco 17 via the ModularDemo Content module</footer>
+<footer class="inner muted">
+  {{ lang.t('Footer.Text', 'Content served by Umbraco 17 via the ModularDemo Content module') }}
+</footer>

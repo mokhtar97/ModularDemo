@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<DictionaryItem Key="1d71b49a-53ae-5f80-b6e8-b35d35e81dc7" Name="Zoo">
+  <DictionaryItem Key="260a7764-ee3b-57bf-9e9d-660b4e501722" Name="Nav.Home">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Home]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[الرئيسية]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="d8550c91-ccda-5a03-8f26-09c85ac63324" Name="Nav.Label">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Main]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[القائمة الرئيسية]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="2eefd7f1-5e50-5b30-b193-efc539ec5951" Name="Language.Label">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Language]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[اللغة]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="97de15dc-6129-538b-a4b8-ac6da04163a0" Name="Site.Loading">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Loading…]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[جارٍ التحميل…]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="45e9a8cd-94d5-5a38-ba01-f224afb094d4" Name="Site.LoadError">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Couldn't load the site]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[تعذّر تحميل الموقع]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="9f0f742f-f1a1-5fa6-a0a1-0a347038406f" Name="Site.TryAgain">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Try again]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[حاول مرة أخرى]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="d5c1bbeb-d680-592e-b7b8-06fcaaff831c" Name="Site.NotFound">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Page not found]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[الصفحة غير موجودة]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="022804b3-68b4-5b9f-8208-67253e0721d0" Name="Site.NotFoundText">
+    <Value LanguageCultureAlias="en-US"><![CDATA[There's no page at]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[لا توجد صفحة على]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="ebd00b9c-dfa7-5028-9000-feadb1dc6186" Name="Site.BackHome">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Back to the home page]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[العودة إلى الصفحة الرئيسية]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="91314073-ed01-5a69-b6b9-f3d6f255bbbe" Name="Footer.Text">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Content served by Umbraco 17 via the ModularDemo Content module]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[المحتوى مقدَّم من Umbraco 17 عبر وحدة المحتوى ModularDemo]]></Value>
+  </DictionaryItem>
+</DictionaryItem>

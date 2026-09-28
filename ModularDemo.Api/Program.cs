@@ -41,8 +41,8 @@ app.UseUmbraco()
 		u.UseWebsiteEndpoints();
 	});
 
-// Module endpoints (explicit routes win over Umbraco's catch-all content route)
+// Module endpoints (explicit routes win over Umbraco's catch-all content route).
+// The Content module uses an attribute-routed controller, which Umbraco's endpoint setup already maps.
 app.MapOrdersEndpoints();
-app.MapContentEndpoints();
 
 await app.RunAsync();
