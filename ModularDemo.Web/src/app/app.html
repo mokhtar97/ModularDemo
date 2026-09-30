@@ -1,5 +1,5 @@
 <header class="topbar">
-  <div class="inner">
+  <div class="inner" #headerInner [class.stacked]="stackedHeader()">
     <a routerLink="/" class="brand">
       <span class="brand-mark" aria-hidden="true">🦁</span>
       {{ site.siteName() || 'Zoo' }}

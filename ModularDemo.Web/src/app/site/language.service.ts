@@ -90,10 +90,18 @@ export class LanguageService {
     return this.dictionary()[key] ?? fallback;
   }
 
-  /** Language name in its own language, e.g. "العربية", "English"; Umbraco's name as fallback. */
+  /**
+   * Language name in its own language, e.g. "العربية", "English". The region is added only
+   * when two site languages share a base language (en-US + en-GB). Umbraco's name as fallback.
+   */
   label(language: Language): string {
+    const base = language.isoCode.split('-')[0];
+    const shared = this.languages().some(
+      (l) => l.isoCode !== language.isoCode && l.isoCode.split('-')[0] === base,
+    );
+    const code = shared ? language.isoCode : base;
     try {
-      const own = new Intl.DisplayNames([language.isoCode], { type: 'language' }).of(language.isoCode);
+      const own = new Intl.DisplayNames([language.isoCode], { type: 'language' }).of(code);
       if (own) return own.charAt(0).toLocaleUpperCase(language.isoCode) + own.slice(1);
     } catch {
       // unknown code

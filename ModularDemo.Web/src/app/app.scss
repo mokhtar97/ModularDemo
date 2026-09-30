@@ -27,6 +27,12 @@ footer { padding-bottom: 2rem; font-size: 0.85rem; }
 .topbar nav { flex: 1 1 auto; min-width: 0; scrollbar-width: none; }
 .topbar nav::-webkit-scrollbar { display: none; }
 .brand { flex: none; white-space: nowrap; }
+/* Tighter menu so more items fit on one line. */
+.topbar nav a { padding-inline: 0.65rem; }
+/* When the header doesn't fit on one line (measured in App), the menu gets its own row. */
+.topbar .inner.stacked { flex-wrap: wrap; row-gap: 0.4rem; }
+.topbar .inner.stacked nav { order: 3; flex-basis: 100%; }
+.topbar .inner.stacked .tools { margin-inline-start: auto; }
 /* Phones: brand + tools on the first row, the menu on its own row below. */
 @media (max-width: 720px) {
   .topbar .inner { flex-wrap: wrap; gap: 0.5rem 0.75rem; }

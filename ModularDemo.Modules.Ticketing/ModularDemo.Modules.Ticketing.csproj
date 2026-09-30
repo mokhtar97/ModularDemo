@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModularDemo.Shared\ModularDemo.Shared.csproj" />
+    <ProjectReference Include="..\ModularDemo.Modules.Ticketing.Contracts\ModularDemo.Modules.Ticketing.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <!-- Umbraco abstractions only (for the content-type migration); the full CMS package lives in the host.
+         Keep versions in step with Umbraco.Cms in ModularDemo.Api. -->
+    <PackageReference Include="Umbraco.Cms.Core" Version="17.7.0" />
+    <PackageReference Include="Umbraco.Cms.Infrastructure" Version="17.7.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

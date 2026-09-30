@@ -314,6 +314,12 @@ interface Hit extends SearchResult {
       }
     }
 
+    /* Medium screens: icon + shortcut only, so the menu keeps its room. */
+    @media (max-width: 1280px) {
+      .trigger-text {
+        display: none;
+      }
+    }
     /* Narrow screens: icon-only trigger, panel near the top. */
     @media (max-width: 720px) {
       .trigger {

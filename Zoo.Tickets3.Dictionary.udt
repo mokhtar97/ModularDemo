@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<DictionaryItem Key="b133b73a-cd0c-5c2e-8b7c-2933b05d1e5e" Name="Zoo Tickets 3">
+  <DictionaryItem Key="f0241f53-9dad-5f8a-bba7-2f91b9660ee9" Name="Tickets.AllEvents">
+    <Value LanguageCultureAlias="en-US"><![CDATA[All events]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[كل الفعاليات]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="64277ce7-a4b1-5c2b-b4c1-fb25b175c6ac" Name="Tickets.NotFound">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Event not found]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[الفعالية غير موجودة]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="4a3e134b-37c8-51c9-8f1a-909fefe663d6" Name="Tickets.SoldOut">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Sold out]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[نفدت التذاكر]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="b5965092-097e-5c55-b407-c110ff7b2dec" Name="Tickets.When">
+    <Value LanguageCultureAlias="en-US"><![CDATA[When]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[الموعد]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="0043d501-ad44-5112-8522-5d431dc4d094" Name="Tickets.Admission">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Admission]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[الدخول]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="38bce48e-ca8e-5215-afea-1e9087d6e9c5" Name="Tickets.Where">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Where]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[المكان]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="276a8aae-ead7-51dc-b6b1-f2aa4a18ea3a" Name="Tickets.Price">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Price]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[السعر]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="b2527339-b156-5cec-9d4c-ba62420ae558" Name="Tickets.From">
+    <Value LanguageCultureAlias="en-US"><![CDATA[From]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[ابتداءً من]]></Value>
+  </DictionaryItem>
+</DictionaryItem>

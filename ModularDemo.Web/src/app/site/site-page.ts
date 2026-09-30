@@ -10,9 +10,17 @@ import { pageTitle, SiteService } from './site.service';
 import { LanguageService } from './language.service';
 import { ContentLink, ContentNode } from '../content/content.models';
 import { SitePageData } from './site.models';
+import { PretixWidget } from '../ticketing/pretix-widget';
+import { EVENTS_LIST_TYPE, UpcomingEvents } from '../ticketing/upcoming-events';
+import { PretixEventPage } from '../ticketing/pretix-event-page';
+import { PretixProducts } from '../ticketing/pretix-products';
+import { TicketShopProperties } from '../ticketing/pretix.models';
 
 /** Rendered as the page heading (<h1>) at its position; everything else via PropertyValue. */
 const TITLE_PROPERTY = 'pageTitle';
+
+/** pretix settings on event pages: used for the ticket shop, never shown as content. */
+const TICKET_PROPERTIES = new Set(['pretixOrganizer', 'pretixEvent', 'showTicketShop']);
 
 /**
  * Catch-all page: resolves the current URL against the site tree loaded by SiteService.
@@ -20,7 +28,15 @@ const TITLE_PROPERTY = 'pageTitle';
  */
 @Component({
   selector: 'app-site-page',
-  imports: [RouterLink, KeyValuePipe, PropertyValue],
+  imports: [
+    RouterLink,
+    KeyValuePipe,
+    PropertyValue,
+    PretixWidget,
+    UpcomingEvents,
+    PretixEventPage,
+    PretixProducts,
+  ],
   template: `
     @if (site.loading() || (!site.root() && !site.error())) {
       <p class="status" role="status">{{ lang.t('Site.Loading', 'Loading…') }}</p>
@@ -28,7 +44,9 @@ const TITLE_PROPERTY = 'pageTitle';
       <section class="status" role="alert">
         <h1>{{ lang.t('Site.LoadError', "Couldn't load the site") }}</h1>
         <p>{{ error }}</p>
-        <button type="button" (click)="site.load()">{{ lang.t('Site.TryAgain', 'Try again') }}</button>
+        <button type="button" (click)="site.load()">
+          {{ lang.t('Site.TryAgain', 'Try again') }}
+        </button>
       </section>
     } @else if (page(); as page) {
       <!-- Properties render in the order the API returns them (the document type's order). -->
@@ -39,12 +57,23 @@ const TITLE_PROPERTY = 'pageTitle';
         @for (prop of page.node.properties | keyvalue: keepOrder; track prop.key) {
           @if (prop.key === titleProperty) {
             <h1 class="page-title">{{ title() }}</h1>
-          } @else if (isShown(prop.value)) {
+          } @else if (isShown(prop.key, prop.value)) {
             <app-property-value [value]="prop.value" />
           }
         }
 
-        @if (children().length) {
+        @if (ticketShop(); as shop) {
+          <section class="tickets" aria-labelledby="tickets-title">
+            <h2 id="tickets-title">{{ lang.t('Tickets.Products', 'Ticket types') }}</h2>
+            <app-pretix-products [event]="shop.event" />
+            <h2>{{ lang.t('Tickets.Title', 'Tickets') }}</h2>
+            <app-pretix-widget [organizer]="shop.organizer" [event]="shop.event" />
+          </section>
+        }
+
+        @if (isEventsList()) {
+          <app-upcoming-events />
+        } @else if (children().length) {
           <ul class="cards">
             @for (child of children(); track child.node.key) {
               <li class="card">
@@ -67,11 +96,15 @@ const TITLE_PROPERTY = 'pageTitle';
           </ul>
         }
       </article>
+    } @else if (pretixEvent(); as ev) {
+      <!-- "<events page>/<slug>" without an Umbraco item: a page built from pretix. -->
+      <app-pretix-event-page [slug]="ev.slug" [backPath]="ev.backPath" />
     } @else {
       <section class="status">
         <h1>{{ lang.t('Site.NotFound', 'Page not found') }}</h1>
         <p>
-          {{ lang.t('Site.NotFoundText', "There's no page at") }} <code dir="ltr">{{ path() }}</code>
+          {{ lang.t('Site.NotFoundText', "There's no page at") }}
+          <code dir="ltr">{{ path() }}</code>
         </p>
         <a routerLink="/">{{ lang.t('Site.BackHome', 'Back to the home page') }}</a>
       </section>
@@ -86,6 +119,15 @@ const TITLE_PROPERTY = 'pageTitle';
       margin: 0;
       font-size: clamp(1.75rem, 4vw, 2.5rem);
       line-height: 1.25;
+      color: var(--heading);
+    }
+    .tickets {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .tickets h2 {
+      margin: 0.5rem 0 0;
+      font-size: 1.4rem;
       color: var(--heading);
     }
     .page-title {
@@ -193,6 +235,46 @@ export class SitePage {
 
   protected readonly titleProperty = TITLE_PROPERTY;
 
+  /** pretix shop for this page, when "showTicketShop" is on and "pretixEvent" is set. */
+  protected readonly ticketShop = computed<TicketShopProperties | null>(() => {
+    const props = this.page()?.node.properties;
+    const event = props?.['pretixEvent'];
+    if (props?.['showTicketShop'] !== true || typeof event !== 'string' || !event.trim())
+      return null;
+    const organizer = props['pretixOrganizer'];
+    return {
+      event: event.trim(),
+      organizer: typeof organizer === 'string' ? organizer.trim() || null : null,
+    };
+  });
+
+  /**
+   * For a URL with no Umbraco page whose parent is the events list ("/events/eelxc"):
+   * the pretix event slug (last segment, case kept) and the list's path.
+   */
+  protected readonly pretixEvent = computed<{ slug: string; backPath: string } | null>(() => {
+    if (!this.site.root() || this.page()) return null;
+    const segments = this.path().split(/[?#]/)[0].split('/').filter(Boolean);
+    if (segments.length < 2) return null;
+    let slug: string;
+    try {
+      slug = decodeURIComponent(segments[segments.length - 1]);
+    } catch {
+      return null;
+    }
+    const parent = this.site.findByPath('/' + segments.slice(0, -1).join('/'));
+    if (
+      parent?.node.contentType !== EVENTS_LIST_TYPE ||
+      !/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,63}$/.test(slug)
+    )
+      return null;
+    return { slug, backPath: '/' + parent.path };
+  });
+
+  protected readonly isEventsList = computed(
+    () => this.page()?.node.contentType === EVENTS_LIST_TYPE,
+  );
+
   /** Whether the page has a pageTitle property (else the heading goes first, from the node name). */
   protected readonly hasTitleProperty = computed(
     () => !!this.page() && TITLE_PROPERTY in this.page()!.node.properties,
@@ -209,7 +291,7 @@ export class SitePage {
 
       if (page)
         documentTitle.setTitle(page.path === '' ? siteName : `${this.title()} | ${siteName}`);
-      else if (!this.site.loading())
+      else if (!this.site.loading() && !this.pretixEvent())
         documentTitle.setTitle(`${this.lang.t('Site.NotFound', 'Page not found')} | ${siteName}`);
     });
   }
@@ -241,8 +323,9 @@ export class SitePage {
     return null;
   }
 
-  /** Every non-empty property is shown (text, images, video, pickers, blocks…). */
-  protected isShown(value: unknown): boolean {
+  /** Every non-empty property is shown (text, images, video, pickers, blocks…) except pretix settings. */
+  protected isShown(alias: string, value: unknown): boolean {
+    if (TICKET_PROPERTIES.has(alias)) return false;
     return typeof value === 'string' ? value.trim() !== '' : hasValue(value);
   }
 }

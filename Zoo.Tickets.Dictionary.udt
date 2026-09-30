@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<DictionaryItem Key="69a7d88d-6229-5927-ae51-bf9e04875bce" Name="Zoo Tickets">
+  <DictionaryItem Key="a1460fc7-f870-505c-a204-dcb62e79573a" Name="Tickets.Title">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Tickets]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[التذاكر]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="e8de4dc4-3af7-5cbb-abc2-6034fb53aa7f" Name="Tickets.Buy">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Buy tickets]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[احجز تذكرتك]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="535b4a9a-42f3-5608-8aac-04041700889e" Name="Tickets.OpenShop">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Open the ticket shop]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[افتح متجر التذاكر]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="69f64ec0-25c4-5678-a11e-23b473e935af" Name="Tickets.Unavailable">
+    <Value LanguageCultureAlias="en-US"><![CDATA[The ticket shop is not available right now.]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[متجر التذاكر غير متاح حالياً.]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="51ed0207-5fcd-538a-8713-4816b437ae8d" Name="Tickets.Upcoming">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Upcoming events]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[الفعاليات القادمة]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="f3cc24d5-bcb2-5e48-a23d-f893657ba9f6" Name="Tickets.NoEvents">
+    <Value LanguageCultureAlias="en-US"><![CDATA[No upcoming events right now.]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[لا توجد فعاليات قادمة حالياً.]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="53197be1-02bd-52dc-be5b-70cd884197b9" Name="Tickets.LoadError">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Events couldn't be loaded. Please try again later.]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[تعذّر تحميل الفعاليات. حاول مرة أخرى لاحقاً.]]></Value>
+  </DictionaryItem>
+</DictionaryItem>

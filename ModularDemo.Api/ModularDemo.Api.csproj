@@ -4,6 +4,7 @@
     <ProjectReference Include="..\ModularDemo.Modules.Content\ModularDemo.Modules.Content.csproj" />
     <ProjectReference Include="..\ModularDemo.Modules.Orders\ModularDemo.Modules.Orders.csproj" />
     <ProjectReference Include="..\ModularDemo.Modules.Shipping\ModularDemo.Modules.Shipping.csproj" />
+    <ProjectReference Include="..\ModularDemo.Modules.Ticketing\ModularDemo.Modules.Ticketing.csproj" />
     <ProjectReference Include="..\ModularDemo.Shared\ModularDemo.Shared.csproj" />
   </ItemGroup>
 

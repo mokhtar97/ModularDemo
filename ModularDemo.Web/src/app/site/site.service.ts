@@ -71,6 +71,20 @@ export class SiteService {
     });
   }
 
+  /** Router path of the first page of document type `contentType` (e.g. the "events" list), or null. */
+  pathOfType(contentType: string): string | null {
+    for (const page of this.pages().values())
+      if (page.node.contentType === contentType) return '/' + page.path;
+    return null;
+  }
+
+  /** Router path of the first page whose property `alias` equals `value` (e.g. pretixEvent = slug). */
+  pathOfProperty(alias: string, value: string): string | null {
+    for (const page of this.pages().values())
+      if (page.node.properties[alias] === value) return '/' + page.path;
+    return null;
+  }
+
   /** Router path ("/about-zoo") of the node with this key in the loaded tree, or null. */
   pathOfKey(key: string): string | null {
     for (const page of this.pages().values()) if (page.node.key === key) return '/' + page.path;

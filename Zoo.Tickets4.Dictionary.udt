@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<DictionaryItem Key="efd4f0ca-bb5a-5c62-89f5-90d786366ad9" Name="Zoo Tickets 4">
+  <DictionaryItem Key="cdf06d4f-b920-56aa-a3ee-f079f8b3d511" Name="Tickets.Products">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Ticket types]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[أنواع التذاكر]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="8b84b174-70b5-5466-819e-6d2d1725e646" Name="Tickets.Free">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Free]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[مجاناً]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="b5933998-1d7b-5300-b207-c4e07375d684" Name="Tickets.Left">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Only {n} left]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[متبقي {n} فقط]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="05f66da9-48da-5e13-b013-da3c9db1ff90" Name="Tickets.NoProducts">
+    <Value LanguageCultureAlias="en-US"><![CDATA[No tickets are on sale yet.]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[لا توجد تذاكر معروضة للبيع بعد.]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="bb0feeb5-fc4b-52d1-9df1-879ca6052002" Name="Tickets.ProductsError">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Ticket types couldn't be loaded.]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[تعذّر تحميل أنواع التذاكر.]]></Value>
+  </DictionaryItem>
+</DictionaryItem>

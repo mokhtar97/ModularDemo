@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<DictionaryItem Key="7925dc95-e331-5527-a176-00eaa36afd55" Name="Zoo Tickets 2">
+  <DictionaryItem Key="d16079c8-86b4-5c12-99ad-35e979678107" Name="Tickets.NotLive">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Not live]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[غير منشور]]></Value>
+  </DictionaryItem>
+  <DictionaryItem Key="a66ba2c9-4917-56bb-bae6-bb9be5b4e0a2" Name="Tickets.TestMode">
+    <Value LanguageCultureAlias="en-US"><![CDATA[Test mode]]></Value>
+    <Value LanguageCultureAlias="ar"><![CDATA[وضع الاختبار]]></Value>
+  </DictionaryItem>
+</DictionaryItem>

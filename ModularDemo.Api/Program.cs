@@ -2,6 +2,7 @@
 using ModularDemo.Modules.Content;
 using ModularDemo.Modules.Orders;
 using ModularDemo.Modules.Shipping;
+using ModularDemo.Modules.Ticketing;
 using ModularDemo.Shared;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
@@ -23,6 +24,7 @@ builder.CreateUmbracoBuilder()
 	.AddDeliveryApi()
 	.AddComposers()
 	.AddContentModule()
+	.AddTicketingModule() // pretix: /api/pretix proxy + webhook, event document types
 	.Build();
 
 var app = builder.Build();
